@@ -1,0 +1,1041 @@
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ mysql -h127.0.0.1 -uroot -proot
+ERROR 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (111)
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ ps aux | grep mysql
+murod     3037  0.0  0.0  16624  2736 ?        S    11:36   0:00 /bin/bash /usr/bin/mysql-workbench
+murod     3038  0.0  0.0   4448   684 ?        S    11:36   0:00 /bin/sh /usr/bin/catchsegv /usr/bin/mysql-workbench-bin
+murod     3040  1.3  2.2 1028612 136820 ?      SLl  11:36   0:03 /usr/bin/mysql-workbench-bin
+murod     3476  0.0  0.0  15944  2232 pts/1    S+   11:40   0:00 grep --color=auto mysql
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ sudo apt-get install mysql
+[sudo] password for murod: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package mysql
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ sudo apt-get install mysql5
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package mysql5
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ sudo apt-get install mysql-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  libaio1 libhtml-template-perl mysql-client mysql-client-5.5 mysql-common
+  mysql-server-5.5 mysql-server-core-5.5
+Suggested packages:
+  libipc-sharedcache-perl tinyca mailx
+The following NEW packages will be installed:
+  libaio1 libhtml-template-perl mysql-server mysql-server-5.5
+  mysql-server-core-5.5
+The following packages will be upgraded:
+  mysql-client mysql-client-5.5 mysql-common
+3 upgraded, 5 newly installed, 0 to remove and 476 not upgraded.
+Need to get 7,298 kB of archives.
+After this operation, 53.5 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://mirror.beget.ru/ubuntu/ trusty/main libaio1 amd64 0.3.109-4 [6,364 B]
+Get:2 http://mirror.beget.ru/ubuntu/ trusty-updates/main mysql-common all 5.5.62-0ubuntu0.14.04.1 [12.6 kB]
+Get:3 http://mirror.beget.ru/ubuntu/ trusty-updates/main mysql-client all 5.5.62-0ubuntu0.14.04.1 [10.8 kB]
+Get:4 http://mirror.beget.ru/ubuntu/ trusty-updates/main mysql-client-5.5 amd64 5.5.62-0ubuntu0.14.04.1 [1,459 kB]
+Get:5 http://mirror.beget.ru/ubuntu/ trusty-updates/main mysql-server-core-5.5 amd64 5.5.62-0ubuntu0.14.04.1 [3,754 kB]
+Get:6 http://mirror.beget.ru/ubuntu/ trusty-updates/main mysql-server-5.5 amd64 5.5.62-0ubuntu0.14.04.1 [1,979 kB]
+Get:7 http://mirror.beget.ru/ubuntu/ trusty/main libhtml-template-perl all 2.95-1 [65.5 kB]
+Get:8 http://mirror.beget.ru/ubuntu/ trusty-updates/main mysql-server all 5.5.62-0ubuntu0.14.04.1 [11.0 kB]
+Fetched 7,298 kB in 3s (2,303 kB/s)      
+Preconfiguring packages ...
+Selecting previously unselected package libaio1:amd64.
+(Reading database ... 185273 files and directories currently installed.)
+Preparing to unpack .../libaio1_0.3.109-4_amd64.deb ...
+Unpacking libaio1:amd64 (0.3.109-4) ...
+Preparing to unpack .../mysql-common_5.5.62-0ubuntu0.14.04.1_all.deb ...
+Unpacking mysql-common (5.5.62-0ubuntu0.14.04.1) over (5.5.49-0ubuntu0.14.04.1) ...
+Preparing to unpack .../mysql-client_5.5.62-0ubuntu0.14.04.1_all.deb ...
+Unpacking mysql-client (5.5.62-0ubuntu0.14.04.1) over (5.5.49-0ubuntu0.14.04.1) ...
+Preparing to unpack .../mysql-client-5.5_5.5.62-0ubuntu0.14.04.1_amd64.deb ...
+Unpacking mysql-client-5.5 (5.5.62-0ubuntu0.14.04.1) over (5.5.49-0ubuntu0.14.04.1) ...
+Selecting previously unselected package mysql-server-core-5.5.
+Preparing to unpack .../mysql-server-core-5.5_5.5.62-0ubuntu0.14.04.1_amd64.deb ...
+Unpacking mysql-server-core-5.5 (5.5.62-0ubuntu0.14.04.1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up mysql-common (5.5.62-0ubuntu0.14.04.1) ...
+Selecting previously unselected package mysql-server-5.5.
+(Reading database ... 185367 files and directories currently installed.)
+Preparing to unpack .../mysql-server-5.5_5.5.62-0ubuntu0.14.04.1_amd64.deb ...
+Unpacking mysql-server-5.5 (5.5.62-0ubuntu0.14.04.1) ...
+Selecting previously unselected package libhtml-template-perl.
+Preparing to unpack .../libhtml-template-perl_2.95-1_all.deb ...
+Unpacking libhtml-template-perl (2.95-1) ...
+Selecting previously unselected package mysql-server.
+Preparing to unpack .../mysql-server_5.5.62-0ubuntu0.14.04.1_all.deb ...
+Unpacking mysql-server (5.5.62-0ubuntu0.14.04.1) ...
+Processing triggers for ureadahead (0.100.0-16) ...
+ureadahead will be reprofiled on next reboot
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up libaio1:amd64 (0.3.109-4) ...
+Setting up mysql-client-5.5 (5.5.62-0ubuntu0.14.04.1) ...
+Setting up mysql-client (5.5.62-0ubuntu0.14.04.1) ...
+Setting up mysql-server-core-5.5 (5.5.62-0ubuntu0.14.04.1) ...
+Setting up mysql-server-5.5 (5.5.62-0ubuntu0.14.04.1) ...
+200112 11:42:55 [Warning] Using unique option prefix key_buffer instead of key_buffer_size is deprecated and will be removed in a future release. Please use the full name instead.
+200112 11:42:55 [Note] Ignoring --secure-file-priv value as server is running with --bootstrap.
+200112 11:42:55 [Note] /usr/sbin/mysqld (mysqld 5.5.62-0ubuntu0.14.04.1) starting as process 6040 ...
+mysql start/running, process 6172
+Setting up libhtml-template-perl (2.95-1) ...
+Processing triggers for ureadahead (0.100.0-16) ...
+Setting up mysql-server (5.5.62-0ubuntu0.14.04.1) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ ps aux | grep mysql
+murod     3037  0.0  0.0  16624  2736 ?        S    11:36   0:00 /bin/bash /usr/bin/mysql-workbench
+murod     3038  0.0  0.0   4448   684 ?        S    11:36   0:00 /bin/sh /usr/bin/catchsegv /usr/bin/mysql-workbench-bin
+murod     3040  0.8  2.2 1028612 136820 ?      SLl  11:36   0:03 /usr/bin/mysql-workbench-bin
+mysql     6172  1.9  0.8 550024 49576 ?        Ssl  11:43   0:00 /usr/sbin/mysqld
+murod     6339  0.0  0.0  15944  2192 pts/1    S+   11:43   0:00 grep --color=auto mysql
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.1  0.0  33760  4232 ?        Ss   11:21   0:02 /sbin/init
+root         2  0.0  0.0      0     0 ?        S    11:21   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    11:21   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   11:21   0:00 [kworker/0:0H]
+root         6  0.0  0.0      0     0 ?        S    11:21   0:00 [kworker/u16:0]
+root         7  0.1  0.0      0     0 ?        S    11:21   0:01 [rcu_sched]
+root         8  0.0  0.0      0     0 ?        S    11:21   0:00 [rcu_bh]
+root         9  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuos/0]
+root        10  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuob/0]
+root        11  0.0  0.0      0     0 ?        S    11:21   0:00 [migration/0]
+root        12  0.0  0.0      0     0 ?        S    11:21   0:00 [watchdog/0]
+root        13  0.0  0.0      0     0 ?        S    11:21   0:00 [watchdog/1]
+root        14  0.0  0.0      0     0 ?        S    11:21   0:00 [migration/1]
+root        15  0.0  0.0      0     0 ?        S    11:21   0:00 [ksoftirqd/1]
+root        17  0.0  0.0      0     0 ?        S<   11:21   0:00 [kworker/1:0H]
+root        18  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuos/1]
+root        19  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuob/1]
+root        20  0.0  0.0      0     0 ?        S    11:21   0:00 [watchdog/2]
+root        21  0.0  0.0      0     0 ?        S    11:21   0:00 [migration/2]
+root        22  0.0  0.0      0     0 ?        S    11:21   0:00 [ksoftirqd/2]
+root        24  0.0  0.0      0     0 ?        S<   11:21   0:00 [kworker/2:0H]
+root        25  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuos/2]
+root        26  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuob/2]
+root        27  0.0  0.0      0     0 ?        S    11:21   0:00 [watchdog/3]
+root        28  0.0  0.0      0     0 ?        S    11:21   0:00 [migration/3]
+root        29  0.0  0.0      0     0 ?        S    11:21   0:00 [ksoftirqd/3]
+root        31  0.0  0.0      0     0 ?        S<   11:21   0:00 [kworker/3:0H]
+root        32  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuos/3]
+root        33  0.0  0.0      0     0 ?        S    11:21   0:00 [rcuob/3]
+root        34  0.0  0.0      0     0 ?        S<   11:21   0:00 [khelper]
+root        35  0.0  0.0      0     0 ?        S    11:21   0:00 [kdevtmpfs]
+root        36  0.0  0.0      0     0 ?        S<   11:21   0:00 [netns]
+root        37  0.0  0.0      0     0 ?        S<   11:21   0:00 [perf]
+root        38  0.0  0.0      0     0 ?        S    11:21   0:00 [khungtaskd]
+root        39  0.0  0.0      0     0 ?        S<   11:21   0:00 [writeback]
+root        40  0.0  0.0      0     0 ?        SN   11:21   0:00 [ksmd]
+root        41  0.0  0.0      0     0 ?        SN   11:21   0:00 [khugepaged]
+root        42  0.0  0.0      0     0 ?        S<   11:21   0:00 [crypto]
+root        43  0.0  0.0      0     0 ?        S<   11:21   0:00 [kintegrityd]
+root        44  0.0  0.0      0     0 ?        S<   11:21   0:00 [bioset]
+root        45  0.0  0.0      0     0 ?        S<   11:21   0:00 [kblockd]
+root        46  0.0  0.0      0     0 ?        S<   11:21   0:00 [ata_sff]
+root        47  0.0  0.0      0     0 ?        S<   11:21   0:00 [md]
+root        48  0.0  0.0      0     0 ?        S<   11:21   0:00 [devfreq_wq]
+root        50  0.0  0.0      0     0 ?        S    11:21   0:00 [kworker/0:1]
+root        53  0.0  0.0      0     0 ?        S    11:21   0:00 [kswapd0]
+root        54  0.0  0.0      0     0 ?        S    11:21   0:00 [fsnotify_mark]
+root        55  0.0  0.0      0     0 ?        S    11:21   0:00 [ecryptfs-kthrea]
+root        67  0.0  0.0      0     0 ?        S<   11:21   0:00 [kthrotld]
+root        68  0.0  0.0      0     0 ?        S<   11:21   0:00 [acpi_thermal_pm]
+root        69  0.0  0.0      0     0 ?        S    11:21   0:00 [kworker/3:1]
+root        74  0.0  0.0      0     0 ?        S<   11:21   0:00 [ipv6_addrconf]
+root        90  0.0  0.0      0     0 ?        S    11:21   0:00 [kworker/2:1]
+root        95  0.0  0.0      0     0 ?        S<   11:21   0:00 [deferwq]
+root        96  0.0  0.0      0     0 ?        S<   11:21   0:00 [charger_manager]
+root       148  0.0  0.0      0     0 ?        S<   11:21   0:00 [kpsmoused]
+root       149  0.0  0.0      0     0 ?        S    11:21   0:00 [scsi_eh_0]
+root       150  0.0  0.0      0     0 ?        S<   11:21   0:00 [scsi_tmf_0]
+root       151  0.0  0.0      0     0 ?        S    11:21   0:00 [scsi_eh_1]
+root       152  0.0  0.0      0     0 ?        S<   11:21   0:00 [scsi_tmf_1]
+root       153  0.0  0.0      0     0 ?        S    11:21   0:00 [scsi_eh_2]
+root       154  0.0  0.0      0     0 ?        S<   11:21   0:00 [scsi_tmf_2]
+root       155  0.0  0.0      0     0 ?        S    11:21   0:00 [scsi_eh_3]
+root       156  0.0  0.0      0     0 ?        S<   11:21   0:00 [scsi_tmf_3]
+root       157  0.0  0.0      0     0 ?        S    11:21   0:00 [scsi_eh_4]
+root       158  0.0  0.0      0     0 ?        S<   11:21   0:00 [scsi_tmf_4]
+root       159  0.0  0.0      0     0 ?        S    11:21   0:00 [scsi_eh_5]
+root       160  0.0  0.0      0     0 ?        S<   11:21   0:00 [scsi_tmf_5]
+root       161  0.0  0.0      0     0 ?        S    11:21   0:00 [kworker/u16:3]
+root       166  0.0  0.0      0     0 ?        S<   11:21   0:00 [rtsx_pci_sdmmc_]
+root       167  0.0  0.0      0     0 ?        S    11:21   0:00 [kworker/2:2]
+root       169  0.0  0.0      0     0 ?        S    11:21   0:00 [kworker/0:2]
+root       180  0.0  0.0      0     0 ?        S    11:21   0:00 [jbd2/sda2-8]
+root       181  0.0  0.0      0     0 ?        S<   11:21   0:00 [ext4-rsv-conver]
+root       378  0.0  0.0  19612  2148 ?        S    11:21   0:00 upstart-udev-bridge --daemon
+root       391  0.0  0.0  52096  3828 ?        Ss   11:21   0:00 /lib/systemd/systemd-udevd --daemon
+root       444  0.0  0.0      0     0 ?        S    11:21   0:00 [irq/30-mei_me]
+root       463  0.0  0.0      0     0 ?        S<   11:21   0:00 [cfg80211]
+root       464  0.0  0.0      0     0 ?        S<   11:21   0:00 [kworker/2:1H]
+root       469  0.0  0.0      0     0 ?        S<   11:21   0:00 [kmemstick]
+root       476  0.1  0.0      0     0 ?        S    11:21   0:01 [irq/31-iwlwifi]
+root       505  0.0  0.0      0     0 ?        S<   11:21   0:00 [kworker/0:1H]
+root       506  0.0  0.0      0     0 ?        S<   11:21   0:00 [kworker/1:1H]
+root       540  0.0  0.0      0     0 ?        S<   11:21   0:00 [iwlwifi]
+root       569  0.0  0.0      0     0 ?        S<   11:21   0:00 [hd-audio0]
+root       617  0.0  0.0      0     0 ?        S<   11:21   0:00 [kvm-irqfd-clean]
+root       774  0.0  0.0  15660  2168 ?        S    11:21   0:00 upstart-socket-bridge --daemon
+message+   812  0.0  0.0  40128  3636 ?        Ss   11:21   0:00 dbus-daemon --system --fork
+root       875  0.0  0.0  19300  2788 ?        Ss   11:21   0:00 /usr/sbin/bluetoothd
+root       877  0.0  0.1 334448  7764 ?        Ssl  11:21   0:00 /usr/sbin/ModemManager
+root       885  0.0  0.0  43548  3204 ?        Ss   11:21   0:00 /lib/systemd/systemd-logind
+root       909  0.0  0.0      0     0 ?        S<   11:21   0:00 [krfcommd]
+root       916  0.0  0.1 345144 10556 ?        Ssl  11:21   0:00 NetworkManager
+root       927  0.0  0.1 281084 11428 ?        Sl   11:21   0:00 /usr/lib/policykit-1/polkitd --no-debug
+syslog     937  0.0  0.0 255844  3228 ?        Ssl  11:21   0:00 rsyslogd
+avahi      945  0.0  0.0  32348  2964 ?        S    11:21   0:00 avahi-daemon: running [murod-HP-ENVY-Sleekbook-4-PC.local]
+avahi      946  0.0  0.0  32224   252 ?        S    11:21   0:00 avahi-daemon: chroot helper
+root       982  0.0  0.0  15280  1664 ?        S    11:21   0:00 upstart-file-bridge --daemon
+root      1058  0.0  0.0  20016  2080 tty4     Ss+  11:21   0:00 /sbin/getty -8 38400 tty4
+root      1062  0.0  0.0  20016  2080 tty5     Ss+  11:21   0:00 /sbin/getty -8 38400 tty5
+root      1063  0.0  0.1 125572  7100 ?        Ssl  11:21   0:00 thermald --no-daemon --dbus-enable
+root      1069  0.0  0.0  20016  2052 tty2     Ss+  11:21   0:00 /sbin/getty -8 38400 tty2
+root      1070  0.0  0.0  20016  2060 tty3     Ss+  11:21   0:00 /sbin/getty -8 38400 tty3
+root      1073  0.0  0.0  20016  2128 tty6     Ss+  11:21   0:00 /sbin/getty -8 38400 tty6
+root      1124  0.0  0.0  23656  2252 ?        Ss   11:21   0:00 cron
+root      1132  0.0  0.0  19196  2156 ?        Ss   11:21   0:00 /usr/sbin/irqbalance
+whoopsie  1158  0.0  0.1 361332  9712 ?        Ssl  11:21   0:00 whoopsie
+root      1159  0.0  0.0  75360  5940 ?        Ss   11:21   0:00 /usr/sbin/cups-browsed
+root      1226  0.0  0.0 277896  5860 ?        SLsl 11:22   0:00 lightdm
+root      1237  0.8  1.0 382960 65528 tty7     Ssl+ 11:22   0:11 /usr/bin/X -core :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt
+root      1239  0.0  0.0   4372  1656 ?        Ss   11:22   0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+root      1241  0.0  0.1 287460  8508 ?        Sl   11:22   0:00 /usr/lib/accountsservice/accounts-daemon
+root      1326  0.0  0.0  30628  5400 ?        Ss   11:22   0:00 /sbin/wpa_supplicant -B -P /run/sendsigs.omit.d/wpasupplicant.pid -u -s -O /var
+root      1382  0.0  0.0      0     0 ?        S    11:22   0:00 [kauditd]
+root      1403  0.0  0.0   4448   112 ?        S    11:22   0:00 /bin/sh /usr/lib/ipsec/_plutorun --debug  --uniqueids yes --force_busy no --noc
+root      1404  0.0  0.0   4344  1524 ?        S    11:22   0:00 logger -s -p daemon.error -t ipsec__plutorun
+root      1405  0.0  0.0   4448   112 ?        S    11:22   0:00 /bin/sh /usr/lib/ipsec/_plutorun --debug  --uniqueids yes --force_busy no --noc
+root      1407  0.0  0.0   4448   808 ?        S    11:22   0:00 /bin/sh /usr/lib/ipsec/_plutoload --wait no --post 
+root      1409  0.0  0.1  94084  6292 ?        S    11:22   0:00 /usr/lib/ipsec/pluto --nofork --secretsfile /etc/ipsec.secrets --ipsecdir /etc/
+root      1432  0.0  0.0  94092   952 ?        SN   11:22   0:00 pluto helper  #  0                                                             
+root      1433  0.0  0.0  94092   952 ?        SN   11:22   0:00 pluto helper  #  1                                                             
+root      1435  0.0  0.0  94092   952 ?        SN   11:22   0:00 pluto helper  #  2                                                             
+kernoops  1464  0.0  0.0  37148  2628 ?        Ss   11:22   0:00 /usr/sbin/kerneloops
+root      1585  0.0  0.0   6360   696 ?        S    11:22   0:00 _pluto_adns
+root      1586  0.0  0.0      0     0 ?        S<   11:22   0:00 [kworker/3:1H]
+root      1587  0.0  0.0 143444  5260 ?        Ss   11:22   0:00 /usr/lib/l2tp-ipsec-vpn-daemon/L2tpIPsecVpnControlDaemon
+root      1590  0.0  0.0      0     0 ?        Z    11:22   0:00 [echo] <defunct>
+root      1591  0.0  0.1 170504  6400 ?        Sl   11:22   0:00 lightdm --session-child 12 19
+root      1638  0.0  0.1 239388  7316 ?        Sl   11:22   0:00 /usr/lib/upower/upowerd
+root      1673  0.0  0.0  10232  5184 ?        S    11:22   0:00 /sbin/dhclient -d -sf /usr/lib/NetworkManager/nm-dhcp-client.action -pf /run/se
+rtkit     1704  0.0  0.0 168916  2500 ?        SNl  11:22   0:00 /usr/lib/rtkit/rtkit-daemon
+colord    1819  0.0  0.1 301500  8776 ?        Sl   11:22   0:00 /usr/lib/colord/colord
+root      1878  0.0  0.0      0     0 ?        S<   11:22   0:00 [iprt-VBoxWQueue]
+root      1879  0.0  0.0      0     0 ?        S    11:22   0:00 [iprt-VBoxTscThr]
+root      1895  0.0  0.0   4444   104 ?        Ss   11:22   0:00 /usr/sbin/xl2tpd
+root      1940  0.0  0.0  20016  2104 tty1     Ss+  11:22   0:00 /sbin/getty -8 38400 tty1
+nobody    1954  0.0  0.0  35224  3308 ?        S    11:22   0:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces
+root      2116  0.0  0.6 436064 36568 ?        Ssl  11:22   0:01 /usr/bin/docker daemon --raw-logs
+root      2130  0.0  0.2 351968 12344 ?        Ssl  11:22   0:00 docker-containerd -l /var/run/docker/libcontainerd/docker-containerd.sock --run
+murod     2163  0.0  0.1 370788  7616 ?        Sl   11:22   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+murod     2170  0.0  0.0  40196  4304 ?        Ss   11:22   0:00 init --user
+murod     2316  0.3  0.0  40172  3532 ?        Ss   11:22   0:04 dbus-daemon --fork --session --address=unix:abstract=/tmp/dbus-BBkWq7ka7T
+murod     2327  0.0  0.0  22304  2328 ?        Ss   11:22   0:00 upstart-event-bridge
+murod     2333  0.0  0.1  78200  7992 ?        Ss   11:22   0:00 /usr/lib/x86_64-linux-gnu/hud/window-stack-bridge
+murod     2352  0.0  0.0  30784   272 ?        S    11:22   0:00 upstart-file-bridge --daemon --user
+murod     2355  0.0  0.3 538256 19968 ?        Sl   11:22   0:00 /usr/lib/x86_64-linux-gnu/bamf/bamfdaemon
+murod     2360  0.0  0.0  22312   216 ?        S    11:22   0:00 upstart-dbus-bridge --daemon --system --user --bus-name system
+murod     2362  0.1  0.0  22312  1744 ?        S    11:22   0:01 upstart-dbus-bridge --daemon --session --user --bus-name session
+murod     2368  0.0  0.0 196648  5708 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfsd
+murod     2372  0.0  0.1 345668  7664 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+murod     2380  0.0  0.1 361984  6960 ?        Ssl  11:22   0:01 /usr/bin/ibus-daemon --daemonize --xim
+murod     2398  0.0  0.1 280888  6348 ?        Sl   11:22   0:00 /usr/lib/ibus/ibus-dconf
+murod     2400  0.0  0.3 468136 23252 ?        Sl   11:22   0:00 /usr/lib/ibus/ibus-ui-gtk3
+murod     2401  0.0  0.4 813632 27196 ?        Ssl  11:22   0:00 /usr/lib/unity-settings-daemon/unity-settings-daemon
+murod     2405  0.0  0.2 386900 15764 ?        Sl   11:22   0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+murod     2408  0.0  0.5 712988 35252 ?        Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/hud/hud-service
+murod     2414  0.0  0.0 337608  5908 ?        Ssl  11:22   0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher --launch-immediately
+murod     2418  0.0  0.3 575700 18780 ?        Ssl  11:22   0:00 gnome-session --session=ubuntu
+murod     2421  0.8  0.4 558216 27468 ?        Ssl  11:22   0:10 /usr/lib/unity/unity-panel-service
+murod     2427  0.0  0.0  39248  3492 ?        S    11:22   0:00 /bin/dbus-daemon --config-file=/etc/at-spi2/accessibility.conf --nofork --print
+murod     2435  0.0  0.0 124916  4832 ?        Sl   11:22   0:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+murod     2450  0.0  0.3 575900 21792 ?        Sl   11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-keyboard-service --use-gtk
+murod     2452  0.0  0.0 335108  4512 ?        Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-messages/indicator-messages-service
+murod     2453  0.0  0.0 263664  5504 ?        Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-bluetooth/indicator-bluetooth-service
+murod     2461  0.0  0.0 286724  5956 ?        Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-power/indicator-power-service
+murod     2463  0.0  0.2 1162688 16792 ?       Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-datetime/indicator-datetime-service
+murod     2464  0.0  0.1 479412 11728 ?        Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-sound/indicator-sound-service
+murod     2470  0.0  0.3 446796 23748 ?        Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-printers/indicator-printers-service
+murod     2480  0.0  0.1 893756  6860 ?        Ssl  11:22   0:00 /usr/lib/x86_64-linux-gnu/indicator-session/indicator-session-service
+murod     2481  0.4  0.1 286792 11128 ?        Ssl  11:22   0:06 /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+murod     2505  0.0  0.3 481000 18600 ?        Sl   11:22   0:00 /usr/lib/evolution/evolution-source-registry
+murod     2512  0.0  0.1 205156  8296 ?        Sl   11:22   0:00 /usr/lib/ibus/ibus-engine-simple
+murod     2522  0.0  0.1 373804  9868 ?        S<l  11:22   0:00 /usr/bin/pulseaudio --start --log-target=syslog
+murod     2530  0.0  0.0 178440  4852 ?        Sl   11:22   0:00 /usr/lib/dconf/dconf-service
+murod     2534  0.0  0.0  22312  2616 ?        S    11:22   0:00 syndaemon -i 1.0 -t -K -R
+murod     2545  0.0  0.2 340428 17632 ?        Sl   11:22   0:00 /usr/lib/x86_64-linux-gnu/notify-osd
+murod     2551  0.0  0.8 877624 52136 ?        Sl   11:22   0:00 /usr/lib/evolution/evolution-calendar-factory
+murod     2565  2.4  3.6 1488484 221620 ?      Sl   11:22   0:31 compiz
+murod     2569  0.0  0.7 1122984 45468 ?       Sl   11:22   0:00 nautilus -n
+murod     2571  0.0  0.5 578456 30984 ?        Sl   11:22   0:00 nm-applet
+murod     2573  0.0  0.3 411496 18844 ?        Sl   11:22   0:00 /usr/lib/unity-settings-daemon/unity-fallback-mount-helper
+murod     2578  0.0  0.2 331704 17084 ?        Sl   11:22   0:00 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+murod     2581  1.7  0.3 412960 21232 ?        Sl   11:22   0:22 indicator-multiload
+murod     2584  0.0  0.6 798996 40944 ?        Sl   11:22   0:00 L2tpIPsecVpn
+murod     2601  0.0  0.1 298828  7936 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+root      2609  0.0  0.1 371272  7568 ?        Sl   11:22   0:00 /usr/lib/udisks2/udisksd --no-debug
+murod     2611  0.0  0.1  58152  6212 ?        S    11:22   0:00 /usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+murod     2634  0.0  0.0 212444  5832 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+murod     2638  0.0  0.1 285968  6120 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+murod     2646  0.0  0.0 200280  5368 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+murod     2651  0.0  0.1 506880  8560 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.6 /org/gtk/gvfs/exec_spaw/0
+murod     2667  0.0  0.0 124572  5540 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfsd-metadata
+murod     2672  0.0  0.0 270384  4600 ?        Sl   11:22   0:00 /usr/lib/gvfs/gvfsd-burn --spawner :1.6 /org/gtk/gvfs/exec_spaw/1
+murod     2732  0.0  0.3 455096 18852 ?        Sl   11:22   0:00 telepathy-indicator
+murod     2740  0.0  0.2 322508 14088 ?        Sl   11:22   0:00 /usr/lib/telepathy/mission-control-5
+murod     2763  0.0  0.2 483888 14276 ?        Sl   11:22   0:00 zeitgeist-datahub
+murod     2768  0.0  0.1 349008  9384 ?        Sl   11:22   0:00 /usr/bin/zeitgeist-daemon
+murod     2775  0.0  0.4 244792 24132 ?        Sl   11:22   0:00 /usr/lib/x86_64-linux-gnu/zeitgeist-fts
+murod     2790  0.0  0.0  11416   696 ?        S    11:22   0:00 /bin/cat
+root      2805  0.0  0.1  76860  6020 ?        Ss   11:22   0:00 /usr/sbin/cupsd -f
+murod     2841  0.0  0.3 497992 23216 ?        Sl   11:23   0:00 update-notifier
+murod     2863  0.5  2.1 655632 131068 ?       SNl  11:23   0:06 /usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
+murod     2893  0.0  0.1 377764  6772 ?        Sl   11:24   0:00 /usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
+root      2948  0.0  0.0      0     0 ?        S    11:28   0:00 [kworker/1:0]
+root      2960  0.0  0.0      0     0 ?        S    11:35   0:00 [kworker/3:0]
+root      2962  0.0  0.0      0     0 ?        S    11:35   0:00 [kworker/u16:1]
+root      2964  0.0  0.0      0     0 ?        S    11:36   0:00 [kworker/1:2]
+murod     2966  0.0  0.3 677156 23212 ?        Sl   11:36   0:00 /usr/lib/x86_64-linux-gnu/unity-scope-home/unity-scope-home
+murod     2979  0.1  0.4 665500 26576 ?        Sl   11:36   0:00 /usr/bin/unity-scope-loader applications/applications.scope applications/scopes
+murod     2983  0.0  0.2 659716 15360 ?        Sl   11:36   0:00 /usr/lib/x86_64-linux-gnu/unity-lens-files/unity-files-daemon
+murod     3018  0.0  0.2 345988 13892 ?        Sl   11:36   0:00 /usr/lib/x86_64-linux-gnu/unity-lens-music/unity-music-daemon
+murod     3037  0.0  0.0  16624  2736 ?        S    11:36   0:00 /bin/bash /usr/bin/mysql-workbench
+murod     3038  0.0  0.0   4448   684 ?        S    11:36   0:00 /bin/sh /usr/bin/catchsegv /usr/bin/mysql-workbench-bin
+murod     3040  0.8  2.2 1028612 136820 ?      SLl  11:36   0:03 /usr/bin/mysql-workbench-bin
+murod     3444  0.8  0.4 638344 28264 ?        Sl   11:39   0:01 gnome-terminal
+murod     3453  0.0  0.0  14824  1860 ?        S    11:39   0:00 gnome-pty-helper
+murod     3454  0.0  0.1  27840  6444 pts/1    Ss   11:39   0:00 bash
+murod     3490 20.8  5.8 1129324 353588 ?      Sl   11:41   0:23 /usr/lib/firefox/firefox
+root      3559  0.0  0.0      0     0 ?        S    11:42   0:00 [kworker/3:2]
+root      3636  0.0  0.0      0     0 ?        S    11:42   0:00 [kworker/0:0]
+root      5909  0.0  0.0      0     0 ?        S    11:42   0:00 [kworker/2:0]
+mysql     6172  0.8  0.8 550024 49576 ?        Ssl  11:43   0:00 /usr/sbin/mysqld
+murod     6340  0.0  0.0  22644  2592 pts/1    R+   11:43   0:00 ps aux
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ ps aux | grep mysql
+murod     3037  0.0  0.0  16624  2736 ?        S    11:36   0:00 /bin/bash /usr/bin/mysql-workbench
+murod     3038  0.0  0.0   4448   684 ?        S    11:36   0:00 /bin/sh /usr/bin/catchsegv /usr/bin/mysql-workbench-bin
+murod     3040  0.7  2.2 1028612 136820 ?      SLl  11:36   0:03 /usr/bin/mysql-workbench-bin
+mysql     6172  0.4  0.8 550024 49576 ?        Ssl  11:43   0:00 /usr/sbin/mysqld
+murod     6344  0.0  0.0  15944  2260 pts/1    S+   11:44   0:00 grep --color=auto mysql
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ mysql -h127.0.0.1 -uroot -proot
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 42
+Server version: 5.5.62-0ubuntu0.14.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.00 sec)
+
+mysql> use mysql
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables
+    -> ;
++---------------------------+
+| Tables_in_mysql           |
++---------------------------+
+| columns_priv              |
+| db                        |
+| event                     |
+| func                      |
+| general_log               |
+| help_category             |
+| help_keyword              |
+| help_relation             |
+| help_topic                |
+| host                      |
+| ndb_binlog_index          |
+| plugin                    |
+| proc                      |
+| procs_priv                |
+| proxies_priv              |
+| servers                   |
+| slow_log                  |
+| tables_priv               |
+| time_zone                 |
+| time_zone_leap_second     |
+| time_zone_name            |
+| time_zone_transition      |
+| time_zone_transition_type |
+| user                      |
++---------------------------+
+24 rows in set (0.00 sec)
+
+mysql> show create table general_log;
++-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table       | Create Table                                                                                                                                                                                                                                                                                                                                                      |
++-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| general_log | CREATE TABLE `general_log` (
+  `event_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_host` mediumtext NOT NULL,
+  `thread_id` int(11) NOT NULL,
+  `server_id` int(10) unsigned NOT NULL,
+  `command_type` varchar(64) NOT NULL,
+  `argument` mediumtext NOT NULL
+) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='General log' |
++-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from general_log limit 2\G
+Empty set (0.00 sec)
+
+mysql> select * from user limit 2\G
+*************************** 1. row ***************************
+                  Host: localhost
+                  User: root
+              Password: *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+           Select_priv: Y
+           Insert_priv: Y
+           Update_priv: Y
+           Delete_priv: Y
+           Create_priv: Y
+             Drop_priv: Y
+           Reload_priv: Y
+         Shutdown_priv: Y
+          Process_priv: Y
+             File_priv: Y
+            Grant_priv: Y
+       References_priv: Y
+            Index_priv: Y
+            Alter_priv: Y
+          Show_db_priv: Y
+            Super_priv: Y
+ Create_tmp_table_priv: Y
+      Lock_tables_priv: Y
+          Execute_priv: Y
+       Repl_slave_priv: Y
+      Repl_client_priv: Y
+      Create_view_priv: Y
+        Show_view_priv: Y
+   Create_routine_priv: Y
+    Alter_routine_priv: Y
+      Create_user_priv: Y
+            Event_priv: Y
+          Trigger_priv: Y
+Create_tablespace_priv: Y
+              ssl_type: 
+            ssl_cipher: 
+           x509_issuer: 
+          x509_subject: 
+         max_questions: 0
+           max_updates: 0
+       max_connections: 0
+  max_user_connections: 0
+                plugin: 
+ authentication_string: 
+*************************** 2. row ***************************
+                  Host: murod-hp-envy-sleekbook-4-pc
+                  User: root
+              Password: *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+           Select_priv: Y
+           Insert_priv: Y
+           Update_priv: Y
+           Delete_priv: Y
+           Create_priv: Y
+             Drop_priv: Y
+           Reload_priv: Y
+         Shutdown_priv: Y
+          Process_priv: Y
+             File_priv: Y
+            Grant_priv: Y
+       References_priv: Y
+            Index_priv: Y
+            Alter_priv: Y
+          Show_db_priv: Y
+            Super_priv: Y
+ Create_tmp_table_priv: Y
+      Lock_tables_priv: Y
+          Execute_priv: Y
+       Repl_slave_priv: Y
+      Repl_client_priv: Y
+      Create_view_priv: Y
+        Show_view_priv: Y
+   Create_routine_priv: Y
+    Alter_routine_priv: Y
+      Create_user_priv: Y
+            Event_priv: Y
+          Trigger_priv: Y
+Create_tablespace_priv: Y
+              ssl_type: 
+            ssl_cipher: 
+           x509_issuer: 
+          x509_subject: 
+         max_questions: 0
+           max_updates: 0
+       max_connections: 0
+  max_user_connections: 0
+                plugin: 
+ authentication_string: 
+2 rows in set (0.00 sec)
+
+mysql> select * from user\G
+*************************** 1. row ***************************
+                  Host: localhost
+                  User: root
+              Password: *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+           Select_priv: Y
+           Insert_priv: Y
+           Update_priv: Y
+           Delete_priv: Y
+           Create_priv: Y
+             Drop_priv: Y
+           Reload_priv: Y
+         Shutdown_priv: Y
+          Process_priv: Y
+             File_priv: Y
+            Grant_priv: Y
+       References_priv: Y
+            Index_priv: Y
+            Alter_priv: Y
+          Show_db_priv: Y
+            Super_priv: Y
+ Create_tmp_table_priv: Y
+      Lock_tables_priv: Y
+          Execute_priv: Y
+       Repl_slave_priv: Y
+      Repl_client_priv: Y
+      Create_view_priv: Y
+        Show_view_priv: Y
+   Create_routine_priv: Y
+    Alter_routine_priv: Y
+      Create_user_priv: Y
+            Event_priv: Y
+          Trigger_priv: Y
+Create_tablespace_priv: Y
+              ssl_type: 
+            ssl_cipher: 
+           x509_issuer: 
+          x509_subject: 
+         max_questions: 0
+           max_updates: 0
+       max_connections: 0
+  max_user_connections: 0
+                plugin: 
+ authentication_string: 
+*************************** 2. row ***************************
+                  Host: murod-hp-envy-sleekbook-4-pc
+                  User: root
+              Password: *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+           Select_priv: Y
+           Insert_priv: Y
+           Update_priv: Y
+           Delete_priv: Y
+           Create_priv: Y
+             Drop_priv: Y
+           Reload_priv: Y
+         Shutdown_priv: Y
+          Process_priv: Y
+             File_priv: Y
+            Grant_priv: Y
+       References_priv: Y
+            Index_priv: Y
+            Alter_priv: Y
+          Show_db_priv: Y
+            Super_priv: Y
+ Create_tmp_table_priv: Y
+      Lock_tables_priv: Y
+          Execute_priv: Y
+       Repl_slave_priv: Y
+      Repl_client_priv: Y
+      Create_view_priv: Y
+        Show_view_priv: Y
+   Create_routine_priv: Y
+    Alter_routine_priv: Y
+      Create_user_priv: Y
+            Event_priv: Y
+          Trigger_priv: Y
+Create_tablespace_priv: Y
+              ssl_type: 
+            ssl_cipher: 
+           x509_issuer: 
+          x509_subject: 
+         max_questions: 0
+           max_updates: 0
+       max_connections: 0
+  max_user_connections: 0
+                plugin: 
+ authentication_string: 
+*************************** 3. row ***************************
+                  Host: 127.0.0.1
+                  User: root
+              Password: *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+           Select_priv: Y
+           Insert_priv: Y
+           Update_priv: Y
+           Delete_priv: Y
+           Create_priv: Y
+             Drop_priv: Y
+           Reload_priv: Y
+         Shutdown_priv: Y
+          Process_priv: Y
+             File_priv: Y
+            Grant_priv: Y
+       References_priv: Y
+            Index_priv: Y
+            Alter_priv: Y
+          Show_db_priv: Y
+            Super_priv: Y
+ Create_tmp_table_priv: Y
+      Lock_tables_priv: Y
+          Execute_priv: Y
+       Repl_slave_priv: Y
+      Repl_client_priv: Y
+      Create_view_priv: Y
+        Show_view_priv: Y
+   Create_routine_priv: Y
+    Alter_routine_priv: Y
+      Create_user_priv: Y
+            Event_priv: Y
+          Trigger_priv: Y
+Create_tablespace_priv: Y
+              ssl_type: 
+            ssl_cipher: 
+           x509_issuer: 
+          x509_subject: 
+         max_questions: 0
+           max_updates: 0
+       max_connections: 0
+  max_user_connections: 0
+                plugin: 
+ authentication_string: 
+*************************** 4. row ***************************
+                  Host: ::1
+                  User: root
+              Password: *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+           Select_priv: Y
+           Insert_priv: Y
+           Update_priv: Y
+           Delete_priv: Y
+           Create_priv: Y
+             Drop_priv: Y
+           Reload_priv: Y
+         Shutdown_priv: Y
+          Process_priv: Y
+             File_priv: Y
+            Grant_priv: Y
+       References_priv: Y
+            Index_priv: Y
+            Alter_priv: Y
+          Show_db_priv: Y
+            Super_priv: Y
+ Create_tmp_table_priv: Y
+      Lock_tables_priv: Y
+          Execute_priv: Y
+       Repl_slave_priv: Y
+      Repl_client_priv: Y
+      Create_view_priv: Y
+        Show_view_priv: Y
+   Create_routine_priv: Y
+    Alter_routine_priv: Y
+      Create_user_priv: Y
+            Event_priv: Y
+          Trigger_priv: Y
+Create_tablespace_priv: Y
+              ssl_type: 
+            ssl_cipher: 
+           x509_issuer: 
+          x509_subject: 
+         max_questions: 0
+           max_updates: 0
+       max_connections: 0
+  max_user_connections: 0
+                plugin: 
+ authentication_string: 
+*************************** 5. row ***************************
+                  Host: localhost
+                  User: debian-sys-maint
+              Password: *573AC81936E19B8B0C00C7CDD17C2E583A4CA5EC
+           Select_priv: Y
+           Insert_priv: Y
+           Update_priv: Y
+           Delete_priv: Y
+           Create_priv: Y
+             Drop_priv: Y
+           Reload_priv: Y
+         Shutdown_priv: Y
+          Process_priv: Y
+             File_priv: Y
+            Grant_priv: Y
+       References_priv: Y
+            Index_priv: Y
+            Alter_priv: Y
+          Show_db_priv: Y
+            Super_priv: Y
+ Create_tmp_table_priv: Y
+      Lock_tables_priv: Y
+          Execute_priv: Y
+       Repl_slave_priv: Y
+      Repl_client_priv: Y
+      Create_view_priv: Y
+        Show_view_priv: Y
+   Create_routine_priv: Y
+    Alter_routine_priv: Y
+      Create_user_priv: Y
+            Event_priv: Y
+          Trigger_priv: Y
+Create_tablespace_priv: Y
+              ssl_type: 
+            ssl_cipher: 
+           x509_issuer: 
+          x509_subject: 
+         max_questions: 0
+           max_updates: 0
+       max_connections: 0
+  max_user_connections: 0
+                plugin: 
+ authentication_string: NULL
+5 rows in set (0.00 sec)
+
+mysql> Bye
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ mysql -hlocalhost -uroot -proot
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 43
+Server version: 5.5.62-0ubuntu0.14.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create database test;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> use test
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table mytable (Id int, Name varchar(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into mytable (Id, Name) values(1, 'Jamoliddin');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from mytable;
++------+------------+
+| Id   | Name       |
++------+------------+
+|    1 | Jamoliddin |
++------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into mytable (Id, Name) values(2, 'Murod');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from mytable;
++------+------------+
+| Id   | Name       |
++------+------------+
+|    1 | Jamoliddin |
+|    2 | Murod      |
++------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from mytable where Id=2;
++------+-------+
+| Id   | Name  |
++------+-------+
+|    2 | Murod |
++------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from mytable where Name='murod';
++------+-------+
+| Id   | Name  |
++------+-------+
+|    2 | Murod |
++------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from mytable where Id=1;
++------+------------+
+| Id   | Name       |
++------+------------+
+|    1 | Jamoliddin |
++------+------------+
+1 row in set (0.00 sec)
+
+mysql> update mytable set Name='Murod Irgashev' where Id=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from mytable where Id=2;
++------+----------------+
+| Id   | Name           |
++------+----------------+
+|    2 | Murod Irgashev |
++------+----------------+
+1 row in set (0.01 sec)
+
+mysql> delete from mytable where Id=2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from mytable where Id=2;
+Empty set (0.00 sec)
+
+mysql> select * from mytable;
++------+------------+
+| Id   | Name       |
++------+------------+
+|    1 | Jamoliddin |
++------+------------+
+1 row in set (0.00 sec)
+
+mysql> \mysql
+ERROR: 
+Unknown command '\m'.
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\mysql' at line 1
+mysql> use mysql;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show create table user;
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| user  | CREATE TABLE `user` (
+  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `User` char(16) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `Password` char(41) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
+  `Select_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Insert_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Update_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Delete_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Create_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Drop_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Reload_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Shutdown_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Process_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `File_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Grant_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `References_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Index_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Alter_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Show_db_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Super_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Execute_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Repl_slave_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Repl_client_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Create_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Show_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Create_user_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Event_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Trigger_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `Create_tablespace_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
+  `ssl_type` enum('','ANY','X509','SPECIFIED') CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `ssl_cipher` blob NOT NULL,
+  `x509_issuer` blob NOT NULL,
+  `x509_subject` blob NOT NULL,
+  `max_questions` int(11) unsigned NOT NULL DEFAULT '0',
+  `max_updates` int(11) unsigned NOT NULL DEFAULT '0',
+  `max_connections` int(11) unsigned NOT NULL DEFAULT '0',
+  `max_user_connections` int(11) unsigned NOT NULL DEFAULT '0',
+  `plugin` char(64) COLLATE utf8_bin DEFAULT '',
+  `authentication_string` text COLLATE utf8_bin,
+  PRIMARY KEY (`Host`,`User`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and global privileges' |
++-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> show create table general_log;
++-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table       | Create Table                                                                                                                                                                                                                                                                                                                                                      |
++-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| general_log | CREATE TABLE `general_log` (
+  `event_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_host` mediumtext NOT NULL,
+  `thread_id` int(11) NOT NULL,
+  `server_id` int(10) unsigned NOT NULL,
+  `command_type` varchar(64) NOT NULL,
+  `argument` mediumtext NOT NULL
+) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='General log' |
++-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> ^CCtrl-C -- exit!
+Aborted
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ mysql -hlocalhost -uroot -proot -Dtest
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 51
+Server version: 5.5.62-0ubuntu0.14.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> Bye
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ php -S
+Usage: php [options] [-f] <file> [--] [args...]
+   php [options] -r <code> [--] [args...]
+   php [options] [-B <begin_code>] -R <code> [-E <end_code>] [--] [args...]
+   php [options] [-B <begin_code>] -F <file> [-E <end_code>] [--] [args...]
+   php [options] -S <addr>:<port> [-t docroot]
+   php [options] -- [args...]
+   php [options] -a
+
+  -a               Run interactively
+  -c <path>|<file> Look for php.ini file in this directory
+  -n               No php.ini file will be used
+  -d foo[=bar]     Define INI entry foo with value 'bar'
+  -e               Generate extended information for debugger/profiler
+  -f <file>        Parse and execute <file>.
+  -h               This help
+  -i               PHP information
+  -l               Syntax check only (lint)
+  -m               Show compiled in modules
+  -r <code>        Run PHP <code> without using script tags <?..?>
+  -B <begin_code>  Run PHP <begin_code> before processing input lines
+  -R <code>        Run PHP <code> for every input line
+  -F <file>        Parse and execute <file> for every input line
+  -E <end_code>    Run PHP <end_code> after processing all input lines
+  -H               Hide any passed arguments from external tools.
+  -S <addr>:<port> Run with built-in web server.
+  -t <docroot>     Specify document root <docroot> for built-in web server.
+  -s               Output HTML syntax highlighted source.
+  -v               Version number
+  -w               Output source with stripped comments and whitespace.
+  -z <file>        Load Zend extension <file>.
+
+  args...          Arguments passed to script. Use -- args when first argument
+                   starts with - or script is read from stdin
+
+  --ini            Show configuration file names
+
+  --rf <name>      Show information about function <name>.
+  --rc <name>      Show information about class <name>.
+  --re <name>      Show information about extension <name>.
+  --rz <name>      Show information about Zend extension <name>.
+  --ri <name>      Show configuration for extension <name>.
+
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ php -S localhost:8080
+PHP 5.5.9-1ubuntu4.17 Development Server started at Sun Jan 12 13:08:54 2020
+Listening on http://localhost:8080
+Document root is /home/murod
+Press Ctrl-C to quit.
+^Cmurod@murod-HP-ENVY-Sleekbook-4-PC:~$ ls
+aws-login.conf         examples.desktop                                   mydb5.sh             Public            tpmaster.sh
+beeline                feed.sh                                            myimports.sh         ReadMe.txt        Untitled 1.ods
+builder2               Gary-and-his-new-'11-4-Runner_original-7202.jpg.1  myreports.sh         start.sh          vertica.sh
+builder2production.sh  hma-openvpn.sh                                     my.sh                sublime-projects  vg.sh
+cie6.sh                hma-vpn-old.sh                                     netbeans-8.1         Templates         Videos
+ciignite.sh            hma-vpn.sh                                         neuralnetworks2.pdf  tf.sh             web4.sh
+client.ovpn            hs_err_pid8301.log                                 neuralnetworks3.pdf  tp10.sh           yupiter-tf.sh
+Desktop                index.html                                         node                 tp15.sh
+Documents              Music                                              ovpn.sh              tp28.sh
+Downloads              mycibuilder.sh                                     Pictures             tp5.sh
+murod@murod-HP-ENVY-Sleekbook-4-PC:~$ cd /var/www/
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www$ ls
+builder2services                       data-Home+%26+Kitchen.json           data-Watches.json                 Massiv1  PhpProject1   Switch2
+curve.php                              data-Home+Improvement.json           db.ignite                         Massiv2  PhpProject10  Switch3
+data-Appliances.json                   data-Industrial+%26+Scientific.json  dealerfire.ignite2.feedgenerator  Massiv4  PhpProject11  Switch4
+data-Arts%2C+Crafts+%26+Sewing.json    data-Jewelry.json                    For1                              OOP1     PhpProject12  Switch5
+data-Automotive.json                   data-Kindle+Store.json               For2                              P1       PhpProject13  Switch6
+data-Baby.json                         data-Kitchen+%26+Dining.json         For3                              P10      PhpProject14  Switch7
+data-Beauty.json                       data-Musical+Instruments.json        For4                              P11      PhpProject15  Switch8
+data-Books.json                        data-Office+Products.json            For5                              P12      PhpProject2   tensorflow
+data-Camera+%26+Photo.json             data-Patio%2C+Lawn+%26+Garden.json   Foreach1                          P2       PhpProject3   test.php
+data-Cell+Phones+%26+Accessories.json  data-Pet+Supplies.json               Foreach2                          P3       PhpProject4   test.sh
+data-Clothing.json                     data-Shoes.json                      Foreach3                          P4       PhpProject5   t.php
+data-Computers.json                    data-Software.json                   Function1                         P5       PhpProject6
+data-Electronics.json                  data-Sports+%26+Outdoors.json        ignite                            P6       PhpProject7
+data-Grocery+%26+Gourmet+Food.json     data.tar.gz                          ignite2                           P7       PhpProject8
+data-Health+%26+Personal+Care.json     data-Toys+%26+Games.json             jj                                P8       PhpProject9
+data-Home+%26+Garden.json              data-Video+Games.json                Massiv                            P9       Switch1
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www$ mkdir test
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www$ cd test
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ ls
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ touch index.php
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ vim index.php
+The program 'vim' can be found in the following packages:
+ * vim
+ * vim-gnome
+ * vim-tiny
+ * vim-athena
+ * vim-gtk
+ * vim-nox
+Try: sudo apt-get install <selected package>
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ nano index.php
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ php -S localhost:8080
+PHP 5.5.9-1ubuntu4.17 Development Server started at Sun Jan 12 13:11:14 2020
+Listening on http://localhost:8080
+Document root is /var/www/test
+Press Ctrl-C to quit.
+[Sun Jan 12 13:11:32 2020] PHP Parse error:  syntax error, unexpected ':' in /var/www/test/index.php on line 2
+[Sun Jan 12 13:11:32 2020] 127.0.0.1:39223 [500]: / - syntax error, unexpected ':' in /var/www/test/index.php on line 2
+[Sun Jan 12 13:11:32 2020] 127.0.0.1:39224 [404]: /favicon.ico - No such file or directory
+[Sun Jan 12 13:11:32 2020] 127.0.0.1:39225 [404]: /favicon.ico - No such file or directory
+[Sun Jan 12 13:11:39 2020] PHP Parse error:  syntax error, unexpected ':' in /var/www/test/index.php on line 2
+[Sun Jan 12 13:11:39 2020] 127.0.0.1:39226 [500]: / - syntax error, unexpected ':' in /var/www/test/index.php on line 2
+[Sun Jan 12 13:11:40 2020] PHP Parse error:  syntax error, unexpected ':' in /var/www/test/index.php on line 2
+[Sun Jan 12 13:11:40 2020] 127.0.0.1:39227 [500]: / - syntax error, unexpected ':' in /var/www/test/index.php on line 2
+[Sun Jan 12 13:11:41 2020] PHP Parse error:  syntax error, unexpected ':' in /var/www/test/index.php on line 2
+[Sun Jan 12 13:11:41 2020] 127.0.0.1:39228 [500]: / - syntax error, unexpected ':' in /var/www/test/index.php on line 2
+^Cmurod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ nano index.php
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ php -S localhost:8080
+PHP 5.5.9-1ubuntu4.17 Development Server started at Sun Jan 12 13:12:19 2020
+Listening on http://localhost:8080
+Document root is /var/www/test
+Press Ctrl-C to quit.
+[Sun Jan 12 13:12:25 2020] 127.0.0.1:39229 [200]: /
+[Sun Jan 12 13:12:29 2020] 127.0.0.1:39230 [200]: /
+^Cmurod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ nano index.php
+murod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$ php -S localhost:8080
+PHP 5.5.9-1ubuntu4.17 Development Server started at Sun Jan 12 13:16:08 2020
+Listening on http://localhost:8080
+Document root is /var/www/test
+Press Ctrl-C to quit.
+[Sun Jan 12 13:16:13 2020] 127.0.0.1:39231 [200]: /
+^A^Cmurod@murod-HP-ENVY-Sleekbook-4-PC:/var/www/test$
